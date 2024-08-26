@@ -1,5 +1,7 @@
 # FinNavy APP
 
+![FinNavy](frontend/src/assets/finnavy_logo.jpg "FinNavy")
+
 This application contains financial result by fetching outsource API to show results and manage stocks.
 
 # API
