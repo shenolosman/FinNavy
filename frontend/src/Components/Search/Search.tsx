@@ -1,19 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react'
+import React, { ChangeEvent, SyntheticEvent } from 'react'
 
-type Props = {}
+interface Props {
+    search: string | undefined,
+    onClick: (e: SyntheticEvent) => void
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
 
-const Search: React.FC<Props> = (props: Props): JSX.Element => {
-    const [search, SetSearch] = useState<string>("");
-
-    const onClick = (e: any) => {
-        e.preventDefault()
-        SetSearch(e.target.value)
-        console.log(e)
-    }
+const Search: React.FC<Props> = ({ search, onClick, handleChange }: Props): JSX.Element => {
     return (
         <div>
-            <input value={search} onChange={(e) => onClick(e)} />
+            <input value={search} onChange={(e) => handleChange(e)} />
+            <button onClick={(e) => onClick(e)}>Search</button>
         </div>
     )
 }

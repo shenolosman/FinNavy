@@ -1,0 +1,2 @@
+VITE_APP_API_KEY=your_key_from_rapidapo_or_directly_from_source
+VITE_APP_API_KEY_URL="financial-modeling-prep.p.rapidapi.com"

@@ -8,7 +8,7 @@ const img3 = 'https://cdn.britannica.com/71/103171-050-D6D9D227/Bill-Gates-Micro
 
 interface Props { }
 
-const CardList: React.FC<Props> = (props: Props): JSX.Element => {
+const CardList: React.FC<Props> = (): JSX.Element => {
     return (
         <div>
             <Card imgUrl={img1} companyName='Apple' price={200} ticker='APPL' />
