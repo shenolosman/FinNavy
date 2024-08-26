@@ -15,7 +15,7 @@ const CardList: React.FC<Props> = ({ searchResult, onPortfolioCreate }: Props): 
                 (searchResult.map((result) => {
                     return <Card key={uuidv4()} searchResult={result} onPortfolioCreate={onPortfolioCreate} />
                 }))
-                : (<h1>No Results</h1>)}
+                : (<h4 className="mb-3 mt-3 text-xl font-semibold text-center md:text-xl">No Results</h4>)}
         </div>
     )
 }
