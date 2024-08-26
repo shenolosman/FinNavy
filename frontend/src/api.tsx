@@ -6,12 +6,12 @@ interface SearchResponse {
     data: CompanySearch[]
 }
 
-export const searchCompanies = async (searchUrl: string, query: string, limit: number) => {
+export const searchCompanies = async (query: string) => {
     try {
         const options = {
             method: 'GET',
-            url: baseUrl + searchUrl,
-            params: { query: query, limit: limit, exchange: "NASDAQ" },
+            url: baseUrl + 'v3/search-name/',
+            params: { query: query, limit: 10, exchange: "NASDAQ" },
             headers: {
                 'x-rapidapi-key': import.meta.env.VITE_APP_API_KEY,
                 'x-rapidapi-host': import.meta.env.VITE_APP_API_KEY_URL
@@ -19,7 +19,7 @@ export const searchCompanies = async (searchUrl: string, query: string, limit: n
         };
 
         const response = await axios.request<SearchResponse>(options);
-        console.log(response.data);
+        return response;
     } catch (error) {
         if (axios.isAxiosError(error)) {
             console.error(`There is error: ${error.message}`)
