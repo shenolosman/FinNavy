@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/finnavy_logo_2.jpg';
+import { Link } from 'react-router-dom';
 
 type Props = object;
 const Navbar: React.FC<Props> = () => {
@@ -7,24 +8,20 @@ const Navbar: React.FC<Props> = () => {
         <nav className="relative container mx-auto p-6">
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-20">
-                    <a href="/">
+                    <Link to="/">
                         <img src={logo} alt="finnavy logo" className='m-0' width={150} />
-
-                    </a>
+                    </Link>
                     <div className="hidden font-bold lg:flex">
-                        <a href="" className="text-black hover:text-darkBlue">
-                            Dashboard
-                        </a>
+                        <Link to="/search" className="text-black hover:text-darkBlue">
+                            Search
+                        </Link>
                     </div>
                 </div>
                 <div className="hidden lg:flex items-center space-x-6 text-back">
                     <div className="hover:text-darkBlue">Login</div>
-                    <a
-                        href=""
-                        className="px-8 py-3 font-bold rounded text-white bg-lightGreen hover:opacity-70"
-                    >
+                    <Link to="signup" className="px-8 py-3 font-bold rounded text-white bg-lightGreen hover:opacity-70">
                         Signup
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>
