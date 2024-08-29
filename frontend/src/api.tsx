@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CompanyKeyMetrics, CompanyProfile, CompanySearch } from "./company";
+import { CompanyIncomeStatement, CompanyKeyMetrics, CompanyProfile, CompanySearch } from "./company";
 const baseUrl = "https://financial-modeling-prep.p.rapidapi.com/";
 
 interface SearchResponse {
@@ -82,3 +82,27 @@ export const getKeyMetrics = async (query: string) => {
     }
 }
 
+export const getIncomeStatement = async (query: string) => {    
+    try {
+        const options = {
+            method: 'GET',
+            url: baseUrl + 'v3/income-statement-growth/' + query,
+            headers: {
+                'x-rapidapi-key': import.meta.env.VITE_APP_API_KEY,
+                'x-rapidapi-host': import.meta.env.VITE_APP_API_KEY_URL
+            }
+        };
+
+        const response = await axios.request<CompanyIncomeStatement[]>(options);
+        return response.data[0];
+
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.error(`There is error: ${error.message}`)
+            return error.message;
+        } else {
+            console.log("unexpected error: ", error);
+            return "An expected error has occurred!";
+        }
+    }
+}

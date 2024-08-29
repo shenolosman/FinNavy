@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { CompanyKeyMetrics } from "../../company";
 import { getKeyMetrics } from "../../api";
 import RatioList from "../RatioList/RatioList";
-import Spinner from "../Spinner/Sprinner";
+import Spinner from "../Spinner/Spinner";
 
 const tableConfig = [
   {
@@ -79,7 +79,7 @@ const CompanyProfile = () => {
   const [companyData, setCompanyData] = useState<CompanyKeyMetrics>();
 
   const getCompanyKeyRatios = async () => {
-    const value = await getKeyMetrics(ticker);
+    const value = await getKeyMetrics(ticker!);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-expect-error
     setCompanyData(value);
